@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.study.coolweather.R;
 import com.study.coolweather.service.AutoUpdateService;
@@ -76,6 +77,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener{
                 break;
             case R.id.refresh_weather:
                 publishText.setText("同步中...");
+                Toast.makeText(WeatherActivity.this,"同步中...",Toast.LENGTH_SHORT).show();
                 SharedPreferences prefs=PreferenceManager.getDefaultSharedPreferences(this);
                 String weatherCode=prefs.getString("weather_code","");
                 if(!TextUtils.isEmpty(weatherCode)){
